@@ -1,3 +1,5 @@
+package app;
+
 import java.util.Scanner;
 
 public class ScamDetectorApp {
@@ -8,8 +10,18 @@ public class ScamDetectorApp {
         System.out.println("Type your message: ");
         String message = sc.nextLine();
 
-        System.out.println(message);
+        ScamDetector detector = new ScamDetector();
+
+        System.out.println(detector.containsUrgency(message));
+
+
+
     }
+
+
+
 }
+
+
 
 
