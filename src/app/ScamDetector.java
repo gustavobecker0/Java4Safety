@@ -8,8 +8,18 @@ public class ScamDetector {
         return containsUrgency(lowerCaseMessage);
     }
 
-    public boolean containsUrgency(String message){
-        return message.contains("urgente");
+    public boolean containsUrgency(String message) {
+        String[] urgencyWords = {
+                "urgente", "imediato", "última chance",
+                "não perca", "responda agora", "tempo limitado"
+        };
+
+        for (String word : urgencyWords) {
+            if (message.contains(word)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

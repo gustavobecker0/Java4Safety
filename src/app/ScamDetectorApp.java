@@ -7,19 +7,13 @@ public class ScamDetectorApp {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Type your message: ");
+        System.out.println("Indique sua mensagem: ");
         String message = sc.nextLine();
 
         ScamDetector detector = new ScamDetector();
 
         System.out.println(detector.containsUrgency(message));
-
-
-
     }
-
-
-
 }
 
 
