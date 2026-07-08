@@ -12,7 +12,7 @@ public class ScamDetectorApp {
 
         ScamDetector detector = new ScamDetector();
 
-        System.out.println(detector.containsUrgency(message));
+        System.out.println(detector.isSuspicious(message));
     }
 }
 
