@@ -1,4 +1,4 @@
-package app;
+    package app;
 
 public class ScamDetector {
 
@@ -22,4 +22,16 @@ public class ScamDetector {
         return false;
     }
 
+    public boolean containSuspiciousLink(String message) {
+        String[] suspiciousWords = {
+                "link", "clique", "aqui", "resgate", "resgatar"
+        };
+
+        for (String word : suspiciousWords) {
+            if (message.contains(word)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
