@@ -64,4 +64,19 @@ public class ScamDetector {
 
         return false;
     }
+
+    public boolean asksForPersonalData(String message) {
+        String[] words = {
+                "senha", "cpf", "cartão", "código",
+                "token", "cvv", "confirme seus dados"
+        };
+
+        for (String word : words) {
+            if (message.contains(word)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
