@@ -2,6 +2,36 @@
 
 public class ScamDetector {
 
+    private static final String[] URGENCY_WORDS = {
+        "urgente", "imediato", "última chance", "não perca", "responda agora", "tempo limitado"
+    };
+    private static final String[] SUSPICIOUS_WORDS = {
+            "link", "clique", "aqui", "resgate", "resgatar"
+    };
+
+    private static final String[] MONEY_WORDS = {
+            "pix", "pagamento", "depósito", "transferência",
+            "boleto", "dinheiro", "taxa", "multa", "prêmio"
+    };
+
+    private static final String[] PRIZE_WORDS = {
+            "você ganhou", "parabéns",
+            "prêmio", "sorteio", "recompensa"
+    };
+
+    private static final String[] PERSONAL_DATA_WORDS = {
+            "senha", "cpf", "cartão", "código",
+            "token", "cvv", "confirme seus dados"
+    };
+
+    private static final String[] THREAT_WORDS = {
+            "conta bloqueada",
+            "será bloqueado",
+            "último aviso",
+            "ação judicial",
+            "cancelado"
+    };
+
     public boolean isSuspicious(String message){
         String lowerCaseMessage = message.toLowerCase();
 
@@ -25,59 +55,27 @@ public class ScamDetector {
     }
 
     public boolean containsUrgency(String message) {
-        String[] words = {
-                "urgente", "imediato", "última chance",
-                "não perca", "responda agora", "tempo limitado"
-        };
-
-        return containsAny(message, words);
+        return containsAny(message, URGENCY_WORDS);
     }
 
     public boolean containSuspiciousLink(String message) {
-        String[] suspiciousWords = {
-                "link", "clique", "aqui", "resgate", "resgatar"
-        };
-
-        return containsAny(message, suspiciousWords);
+        return containsAny(message, SUSPICIOUS_WORDS);
     }
 
     public boolean containsMoneyWords(String message) {
-        String[] words = {
-                "pix", "pagamento", "depósito", "transferência",
-                "boleto", "dinheiro", "taxa", "multa", "prêmio"
-        };
-
-        return containsAny(message, words);
+        return containsAny(message, MONEY_WORDS);
     }
 
     public boolean containsPrizeWords(String message) {
-        String[] words = {
-                "você ganhou", "parabéns",
-                "prêmio", "sorteio", "recompensa"
-        };
-
-        return containsAny(message, words);
+        return containsAny(message, PRIZE_WORDS);
     }
 
     public boolean asksForPersonalData(String message) {
-        String[] words = {
-                "senha", "cpf", "cartão", "código",
-                "token", "cvv", "confirme seus dados"
-        };
-
-        return containsAny(message, words);
+        return containsAny(message, PERSONAL_DATA_WORDS);
     }
 
     public boolean containsThreats(String message) {
-        String[] words = {
-                "conta bloqueada",
-                "será bloqueado",
-                "último aviso",
-                "ação judicial",
-                "cancelado"
-        };
-
-        return containsAny(message, words);
+        return containsAny(message, THREAT_WORDS);
     }
 
     public boolean containsUrl(String message) {
