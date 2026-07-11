@@ -5,7 +5,13 @@ public class ScamDetector {
     public boolean isSuspicious(String message){
         String lowerCaseMessage = message.toLowerCase();
 
-        return containsUrgency(lowerCaseMessage) || containSuspiciousLink(lowerCaseMessage);
+        return containsUrgency(lowerCaseMessage)
+                || containSuspiciousLink(lowerCaseMessage)
+                || containsMoneyWords(lowerCaseMessage)
+                || containsPrizeWords(lowerCaseMessage)
+                || asksForPersonalData(lowerCaseMessage)
+                || containsThreats(lowerCaseMessage)
+                || containsUrl(lowerCaseMessage);
     }
 
     public boolean containsUrgency(String message) {
