@@ -34,4 +34,19 @@ public class ScamDetector {
         }
         return false;
     }
+
+    public boolean containsMoneyWords(String message) {
+        String[] words = {
+                "pix", "pagamento", "depósito", "transferência",
+                "boleto", "dinheiro", "taxa", "multa", "prêmio"
+        };
+
+        for (String word : words) {
+            if (message.contains(word)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
