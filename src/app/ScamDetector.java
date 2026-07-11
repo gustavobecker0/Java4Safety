@@ -97,4 +97,11 @@ public class ScamDetector {
 
         return false;
     }
+
+    public boolean containsUrl(String message) {
+        return message.contains("http://")
+                || message.contains("https://")
+                || message.contains("www.");
+    }
+
 }
