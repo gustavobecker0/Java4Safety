@@ -79,4 +79,22 @@ public class ScamDetector {
 
         return false;
     }
+
+    public boolean containsThreats(String message) {
+        String[] words = {
+                "conta bloqueada",
+                "será bloqueado",
+                "último aviso",
+                "ação judicial",
+                "cancelado"
+        };
+
+        for (String word : words) {
+            if (message.contains(word)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
