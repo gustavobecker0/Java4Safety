@@ -49,4 +49,19 @@ public class ScamDetector {
 
         return false;
     }
+
+    public boolean containsPrizeWords(String message) {
+        String[] words = {
+                "você ganhou", "parabéns",
+                "prêmio", "sorteio", "recompensa"
+        };
+
+        for (String word : words) {
+            if (message.contains(word)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
