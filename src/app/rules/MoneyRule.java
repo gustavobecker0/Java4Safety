@@ -22,6 +22,6 @@ public class MoneyRule extends KeywordRule{
     @Override
     protected int weight(){
         return 10;
-    }
+    };
 
 }
