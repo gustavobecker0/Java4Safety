@@ -1,7 +1,8 @@
 package app.rules;
 
+import app.evaluation.Evidence;
+
 public interface DetectionRule {
 
-    int scoreMessage(String message);
-
+    Evidence scoreMessage(String message);
 }

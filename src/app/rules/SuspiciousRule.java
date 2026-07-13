@@ -16,7 +16,17 @@ public class SuspiciousRule extends KeywordRule{
     };
 
     @Override
-    protected int weight(){
-        return 10;
-    };
+    protected String name() {
+        return "Suspicious";
+    }
+
+    @Override
+    protected String description() {
+        return "The message contains Suspicious terms.";
+    }
+
+    @Override
+    protected int weight() {
+        return 2;
+    }
 }

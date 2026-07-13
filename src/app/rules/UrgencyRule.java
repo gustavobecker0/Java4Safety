@@ -17,7 +17,17 @@ public class UrgencyRule extends KeywordRule{
     };
 
     @Override
-    protected int weight(){
-        return 10;
-    };
+    protected String name() {
+        return "Urgency";
+    }
+
+    @Override
+    protected String description() {
+        return "The message contains urgency terms.";
+    }
+
+    @Override
+    protected int weight() {
+        return 2;
+    }
 }

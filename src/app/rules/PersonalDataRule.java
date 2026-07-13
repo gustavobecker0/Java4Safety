@@ -18,7 +18,17 @@ public class PersonalDataRule extends KeywordRule{
     };
 
     @Override
-    protected int weight(){
-        return 10;
-    };
+    protected String name() {
+        return "Personal Data";
+    }
+
+    @Override
+    protected String description() {
+        return "The message asks for data info.";
+    }
+
+    @Override
+    protected int weight() {
+        return 2;
+    }
 }

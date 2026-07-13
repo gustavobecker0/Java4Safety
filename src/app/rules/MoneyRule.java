@@ -1,8 +1,8 @@
 package app.rules;
 
-public class MoneyRule extends KeywordRule{
+public class MoneyRule extends KeywordRule {
 
-    private static final String [] KEYWORDS = {
+    private static final String[] KEYWORDS = {
             "pix",
             "pagamento",
             "depósito",
@@ -15,13 +15,23 @@ public class MoneyRule extends KeywordRule{
     };
 
     @Override
-    protected String[] keywords(){
+    protected String[] keywords() {
         return KEYWORDS;
-    };
+    }
 
     @Override
-    protected int weight(){
-        return 10;
-    };
+    protected String name() {
+        return "Money";
+    }
+
+    @Override
+    protected String description() {
+        return "The message contains financial terms.";
+    }
+
+    @Override
+    protected int weight() {
+        return 2;
+    }
 
 }

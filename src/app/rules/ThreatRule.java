@@ -16,7 +16,17 @@ public class ThreatRule extends KeywordRule{
     };
 
     @Override
-    protected int weight(){
-        return 10;
-    };
+    protected String name() {
+        return "Threat";
+    }
+
+    @Override
+    protected String description() {
+        return "The message contains threatning terms.";
+    }
+
+    @Override
+    protected int weight() {
+        return 2;
+    }
 }
