@@ -1,8 +1,11 @@
     package app;
 
+    import app.evaluation.DetectionResult;
+    import app.evaluation.Evidence;
     import app.rules.*;
 
     import java.util.List;
+    import java.util.Optional;
 
     public class ScamDetector {
 
@@ -16,15 +19,21 @@
     );
 
 
-    public boolean isSuspicious(String message){
-        message = message.toLowerCase();
+        public DetectionResult analyze(String message) {
 
-        for (DetectionRule rule : this.rules) {
-            if (rule.detectAny(message)) {
-                return true;
+            message = message.toLowerCase();
+
+            DetectionResult result = new DetectionResult();
+
+            for (DetectionRule rule : rules) {
+
+                Evidence evidence = rule.scoreMessage(message);
+
+                if (evidence != null) {
+                    result.add(evidence);
+                }
             }
-        }
 
-        return false;
-    }
+            return result;
+        }
 }
