@@ -2,7 +2,7 @@ package app.rules;
 
 public class MoneyRule extends KeywordRule{
 
-    private static String [] KEYWORDS = {
+    private static final String [] KEYWORDS = {
             "pix",
             "pagamento",
             "depósito",

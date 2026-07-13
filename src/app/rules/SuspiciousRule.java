@@ -2,15 +2,16 @@ package app.rules;
 
 public class SuspiciousRule extends KeywordRule{
 
+    private static final String[] KEYWORDS = {
+            "link",
+            "clique",
+            "aqui",
+            "resgate",
+            "resgatar"
+    };
+
     @Override
     protected String[] keywords(){
-        return new String[] {
-                "link",
-                "clique",
-                "aqui",
-                "resgate",
-                "resgatar"
-        };
-    }
-
+        return KEYWORDS;
+    };
 }
