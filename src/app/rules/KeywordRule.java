@@ -4,15 +4,17 @@ public abstract class KeywordRule implements DetectionRule {
 
     protected abstract String[] keywords();
 
+    protected abstract int weight();
+
     @Override
-    public boolean detectAny(String message){
+    public int scoreMessage(String message){
         for (String keyword : keywords()) {
             if (message.contains(keyword)) {
-                return true;
+                return weight();
             }
         }
 
-        return false;
+        return 0;
     }
 
 }
