@@ -5,7 +5,6 @@
     import app.rules.*;
 
     import java.util.List;
-    import java.util.Optional;
 
     public class ScamDetector {
 
