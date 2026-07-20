@@ -17,12 +17,12 @@ public class ThreatRule extends KeywordRule{
 
     @Override
     protected String name() {
-        return "Threat";
+        return "Ameaça";
     }
 
     @Override
     protected String description() {
-        return "The message contains threatning terms.";
+        return "Essa mensagem contêm termos ameaçadores.";
     }
 
     @Override

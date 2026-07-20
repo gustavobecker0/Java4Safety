@@ -17,12 +17,12 @@ public class SuspiciousRule extends KeywordRule{
 
     @Override
     protected String name() {
-        return "Suspicious";
+        return "Suspeito";
     }
 
     @Override
     protected String description() {
-        return "The message contains Suspicious terms.";
+        return "Essa mensagem contêm termos suspeitos.";
     }
 
     @Override

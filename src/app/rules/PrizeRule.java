@@ -17,12 +17,12 @@ public class PrizeRule extends KeywordRule{
 
     @Override
     protected String name() {
-        return "Prize";
+        return "Prêmio";
     }
 
     @Override
     protected String description() {
-        return "The message contains prize offerings.";
+        return "Essa mensagem está oferencendo prêmios.";
     }
 
     @Override

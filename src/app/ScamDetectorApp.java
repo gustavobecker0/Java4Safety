@@ -10,7 +10,7 @@ public class ScamDetectorApp {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter a message: ");
+        System.out.print("Digite a sua mensagem: ");
         String message = sc.nextLine();
 
         ScamDetector detector = new ScamDetector();
@@ -18,10 +18,10 @@ public class ScamDetectorApp {
         DetectionResult result = detector.analyze(message);
 
         System.out.println();
-        System.out.println("Score: " + result.getScore());
-        System.out.println("Suspicious: " + result.isSuspicious());
+        System.out.println("Pontuação: " + result.getScore());
+        System.out.println("Suspeita: " + result.isSuspicious());
 
-        System.out.println("\nReasons:");
+        System.out.println("\nRasões:");
 
         for (Evidence evidence : result.getEvidences()) {
             System.out.println("- " + evidence.getName()

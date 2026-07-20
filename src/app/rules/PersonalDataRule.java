@@ -19,12 +19,12 @@ public class PersonalDataRule extends KeywordRule{
 
     @Override
     protected String name() {
-        return "Personal Data";
+        return "Dados pessoais";
     }
 
     @Override
     protected String description() {
-        return "The message asks for data info.";
+        return "Essa mensagem pede por dados pessoais.";
     }
 
     @Override

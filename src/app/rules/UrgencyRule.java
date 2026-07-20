@@ -18,12 +18,12 @@ public class UrgencyRule extends KeywordRule{
 
     @Override
     protected String name() {
-        return "Urgency";
+        return "Urgência";
     }
 
     @Override
     protected String description() {
-        return "The message contains urgency terms.";
+        return "Essa mensagem contêm termos urgentes.";
     }
 
     @Override

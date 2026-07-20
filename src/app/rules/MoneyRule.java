@@ -21,12 +21,12 @@ public class MoneyRule extends KeywordRule {
 
     @Override
     protected String name() {
-        return "Money";
+        return "Financeiro";
     }
 
     @Override
     protected String description() {
-        return "The message contains financial terms.";
+        return "Essa semana contêm termos financeiros.";
     }
 
     @Override
