@@ -21,7 +21,7 @@ public class ScamDetectorApp {
         System.out.println("Pontuação: " + result.getScore());
         System.out.println("Suspeita: " + result.isSuspicious());
 
-        System.out.println("\nRasões:");
+        System.out.println("\nRazões:");
 
         for (Evidence evidence : result.getEvidences()) {
             System.out.println("- " + evidence.getName()
