@@ -20,9 +20,9 @@ public class ScamDetectorApp {
         System.out.println();
         System.out.println("Pontuação: " + result.getScore());
 
-        if (result.isSuspicious()) {
-            System.out.println("A mensagem não parece suspeita");
-        } else System.out.println("A mensagem apresenta alguns padrões suspeitos");
+        if (!result.isSuspicious()) {
+            System.out.println("A mensagem não parece suspeita.");
+        } else System.out.println("A mensagem apresenta alguns padrões suspeitos.");
 
         System.out.println("\nRazões:");
 

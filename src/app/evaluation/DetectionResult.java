@@ -26,6 +26,6 @@ public class DetectionResult {
     }
 
     public boolean isSuspicious() {
-        return getScore() >= 2;
+        return getScore() > 2;
     }
 }
