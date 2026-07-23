@@ -1,5 +1,6 @@
 package app;
 
+import app.ai.AiAnalyzer;
 import app.evaluation.DetectionResult;
 import app.evaluation.Evidence;
 
@@ -27,6 +28,16 @@ public class ScamDetectorApp {
             System.out.println("- " + evidence.getName()
                     + " (+" + evidence.getWeight() + ")");
             System.out.println("  " + evidence.getDescription());
+        }
+
+        if (result.isSuspicious()) {
+
+            AiAnalyzer ai = new AiAnalyzer();
+
+            String explanation = ai.analyze(message, result);
+
+            System.out.println("\n=== Análise da IA ===");
+            System.out.println(explanation);
         }
     }
 }

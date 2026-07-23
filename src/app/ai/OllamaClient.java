@@ -11,6 +11,11 @@ public class OllamaClient {
 
     public String generate(String prompt) {
 
+        prompt = prompt
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n");
+
         String json = """
         {
             "model": "llama3.2:latest",
