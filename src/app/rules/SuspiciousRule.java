@@ -4,6 +4,9 @@ public class SuspiciousRule extends KeywordRule{
 
     private static final String[] KEYWORDS = {
             "link",
+            "acesse",
+            "https",
+            "http",
             "clique",
             "aqui",
             "resgate",

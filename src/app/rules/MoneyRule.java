@@ -4,6 +4,8 @@ public class MoneyRule extends KeywordRule {
 
     private static final String[] KEYWORDS = {
             "pix",
+            "conta",
+            "bancária",
             "pagamento",
             "depósito",
             "transferência",
@@ -11,7 +13,9 @@ public class MoneyRule extends KeywordRule {
             "dinheiro",
             "taxa",
             "multa",
-            "prêmio"
+            "prêmio",
+            "R$",
+            "emprestar"
     };
 
     @Override

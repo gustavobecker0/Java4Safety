@@ -4,6 +4,7 @@ public class UrgencyRule extends KeywordRule{
 
     private static final String[] KEYWORDS = {
             "urgente",
+            "minutos",
             "imediato",
             "última chance",
             "não perca",
