@@ -11,36 +11,13 @@ public class OllamaClient {
 
     public String generate(String prompt) {
 
-        prompt = prompt
-                .replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n");
+        String json = buildRequestBody(prompt);
 
-        String json = """
-        {
-            "model": "llama3.2:latest",
-            "prompt": "%s",
-            "stream": false
-        }
-        """.formatted(prompt);
+        HttpRequest request = buildRequest(json);
 
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost:11434/api/generate"))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(json))
-                .build();
+        String response = sendRequest(request);
 
-        try {
-            HttpResponse<String> response =
-                    client.send(
-                            request,
-                            HttpResponse.BodyHandlers.ofString()
-                    );
-
-            return getResponse(response.body());
-        } catch (Exception e){
-            throw new RuntimeException("Erro ao comunicar com o Ollama", e);
-        }
+        return getResponse(response);
     }
 
     private String getResponse(String jsonBody) {
@@ -57,5 +34,49 @@ public class OllamaClient {
         );
     }
 
+    private String buildRequestBody(String prompt){
 
+        prompt = escape(prompt);
+
+        return """
+        {
+            "model": "llama3.2:latest",
+            "prompt": "%s",
+            "stream": false
+        }
+        """.formatted(prompt);
+    }
+
+    private String escape(String text) {
+
+        return text
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n");
+    }
+
+    private HttpRequest buildRequest(String json) {
+
+        return HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:11434/api/generate"))
+                .header("Content-Type", "application/json")
+                .POST(HttpRequest.BodyPublishers.ofString(json))
+                .build();
+    }
+
+    private String sendRequest(HttpRequest request) {
+
+        try {
+            HttpResponse<String> response =
+                    client.send(
+                            request,
+                            HttpResponse.BodyHandlers.ofString());
+            return response.body();
+        } catch (Exception e) {
+            throw new RuntimeException(
+                    "Erro ao comunicar com o Ollama", e
+            );
+        }
+
+    }
 }
