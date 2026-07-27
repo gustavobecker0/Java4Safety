@@ -9,6 +9,7 @@ public class PersonalDataRule extends KeywordRule{
             "código",
             "token",
             "cvv",
+            "senha",
             "confirme seus dados"
     };
 
