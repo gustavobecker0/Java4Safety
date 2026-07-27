@@ -11,8 +11,17 @@ public class AiAnalyzer {
 
         String prompt = promptBuilder.build(message, result);
 
-        return client.generate(prompt);
+        return formatResponse(client.generate(prompt));
 
     }
 
+    private String formatResponse(String text) {
+
+        return text
+                .replace("## ", "\n## ")
+                .replace("- ", "\n- ")
+                .trim();
+    }
+
 }
+

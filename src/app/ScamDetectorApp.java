@@ -38,8 +38,16 @@ public class ScamDetectorApp {
 
             String explanation = ai.analyze(message, result);
 
-            System.out.println("\n=== Análise da IA ===");
+            System.out.println();
+            System.out.println("======================================");
+            System.out.println("        ANÁLISE DA IA");
+            System.out.println("======================================");
+            System.out.println();
+
             System.out.println(explanation);
+
+            System.out.println();
+            System.out.println("======================================");
         }
     }
 }

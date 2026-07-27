@@ -22,16 +22,20 @@ public class OllamaClient {
 
     private String getResponse(String jsonBody) {
 
-        String responseStart = "\"response\":\"";
-        String responseEnd = "\",\"done\":";
+        int responseStartIndex = jsonBody.indexOf("\"response\":\"") + ("\"response\":\"").length();
+        int responseEndIndex = jsonBody.indexOf("\",\"done\":");
 
-        int responseStartIndex = jsonBody.indexOf(responseStart) + responseStart.length();
-        int responseEndIndex = jsonBody.indexOf(responseEnd);
-
-        return jsonBody.substring(
+        return unescape(jsonBody.substring(
                 responseStartIndex,
-                responseEndIndex
+                responseEndIndex)
         );
+    }
+
+    private String unescape(String text) {
+        return text
+                .replace("\\n", "\n")
+                .replace("\\\"", "\"")
+                .replace("\\\\", "\\");
     }
 
     private String buildRequestBody(String prompt){
@@ -77,6 +81,5 @@ public class OllamaClient {
                     "Erro ao comunicar com o Ollama", e
             );
         }
-
     }
 }
